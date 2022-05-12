@@ -35,7 +35,11 @@ void test_linked_list(int n_numeros, int * numeros){
 
 	clock_t start = clock();
 
+	ptLDEC * ldec = NULL;
 
+    	for(int i = 0; i < n_numeros; ++i){
+		ldec = insereLista(ldec, numeros[i]);
+	}
 
 	clock_t end = clock();
 
