@@ -1,7 +1,7 @@
 #include "util.h"
 
 
-// Creates a (random) list of the numbers from 1 to n, inclusive
+// Creates uma lista (não) ordenada de 1 a n, incluso
 int * generate_number_list(int n, int random){
 	if(n == 0) return NULL;
 
@@ -32,14 +32,8 @@ int * generate_number_list(int n, int random){
 	return list;
 }
 
-void print_int_list(int n_numb, int * list){
-	printf("[");
-	for(int i = 0; i < n_numb; ++i){
-		printf(" %d ", list[i]);
-	}
-	printf("]");
-}
-
+//retorna numero em uma posição da lista.
+//posição pode significar inicio/meio/fim ou uma posição real
 int getNumberPos (int *list, int pos, int tam){
 	//-3 = inicio
 	if (pos==-3){
@@ -51,9 +45,13 @@ int getNumberPos (int *list, int pos, int tam){
 	else if (pos==-1){//-3 = fim
 		return list[tam-1];
 	}
-	return 0;
-	//ELSE NUMEROS EM POSICOES ALEATÓRIAS
+	else{
+		return list[pos];
+	}
 }
+
+//busca os valores do inicio, meio e fim de um vetor int
+//e retorna como outro vetor
 int * getInicioMeioFim(int *list, int tam){
 	int * listaBusca = calloc(3, sizeof(int));
 	listaBusca[0] = getNumberPos(list, -3, tam);
@@ -62,3 +60,13 @@ int * getInicioMeioFim(int *list, int tam){
 
 	return listaBusca;
 }
+
+//imprime lista int
+void print_int_list(int n_numb, int * list){
+	printf("[");
+	for(int i = 0; i < n_numb; ++i){
+		printf(" %d ", list[i]);
+	}
+	printf("]");
+}
+

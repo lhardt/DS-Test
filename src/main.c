@@ -12,6 +12,7 @@
 #include "abp.h"
 #include "ldec.h"
 
+//teste de inserção em abp
 pNodoA * test_insert_abp(int n_numeros, int *numeros){
 	printf("\n---------------------------------\n");
 	printf("STARTING INSERT ABP TEST WITH %d NUMBERS.\n", n_numeros);
@@ -33,6 +34,7 @@ pNodoA * test_insert_abp(int n_numeros, int *numeros){
 	return abp;
 }
 
+//teste de inserção em ldec
 ptLDEC * test_insert_linked_list(int n_numeros, int * numeros){
 	printf("\n---------------------------------\n");
 	printf("STARTING INSERT LIST TEST WITH %d NUMBERS.\n", n_numeros);
@@ -60,6 +62,7 @@ ptLDEC * test_insert_linked_list(int n_numeros, int * numeros){
 	return ldec;
 }
 
+//teste de busca em ldec
 void test_search_linked_list(int n_numeros, int * numeros, ptLDEC * ldec){
 	printf("\n---------------------------------\n");
 	printf("STARTING SEARCH LIST TEST WITH %d NUMBERS.\n", n_numeros);
@@ -87,6 +90,7 @@ void test_search_linked_list(int n_numeros, int * numeros, ptLDEC * ldec){
 	printf("\n---------------------------------\n");
 }
 
+// teste de busca em abp
 void test_search_abp(int n_numeros, int * numeros, pNodoA * abp){
 	printf("\n---------------------------------\n");
 	printf("STARTING SEARCH ABP TEST WITH %d NUMBERS.\n", n_numeros);
@@ -114,6 +118,7 @@ void test_search_abp(int n_numeros, int * numeros, pNodoA * abp){
 	printf("\n---------------------------------\n");
 }
 
+//chamadas para o teste não ordenado
 void randomTest(int n_itens){
 	printf("\n\n\n////////////////////////////////////////////\nTeste itens aleatorios:\n>>>\t");
 	int* list = generate_number_list(n_itens, 1);//generate random
@@ -170,6 +175,7 @@ void randomTest(int n_itens){
 
 }
 
+//chamadas para o teste ordenado
 void orderedTest(int n_itens){
 	printf("\n\n\n////////////////////////////////////////////\nTeste itens ordenados:\n>>>\t");
 
@@ -233,14 +239,12 @@ int main(){
 	printf("Digite o numero de itens:\n>>>\t");
 	scanf("%d", &n_itens);
 
-	///////////////////////////////////////////////////////////////
+	//teste base de dados ordenada
 	orderedTest(n_itens);
+
+	//teste base de dadosnão ordenada
 	randomTest(n_itens);
 		
-
-	
-
-	//TEMOS QUE ANALISAR NUMERO DE COMPARAÇÕES TAMBÉM
 
 	return 0;
 }

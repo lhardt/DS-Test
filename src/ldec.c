@@ -3,10 +3,7 @@
 
 #include "ldec.h"
 
-ptLDEC * inicializa(){
-	return NULL;
-}
-
+//consulta valor em LDEC
 void consultaLDEC(ptLDEC * lista, int num, int * cont){
     ptLDEC * enc = NULL;
     ptLDEC * aux = lista;
@@ -34,6 +31,7 @@ void consultaLDEC(ptLDEC * lista, int num, int * cont){
 
 }
 
+//insere nodo/valor em uma lista LDEC
 ptLDEC * insereLista(ptLDEC * lista, int item, int * cont){
 	
 	ptLDEC * novo = calloc(1, sizeof(ptLDEC));

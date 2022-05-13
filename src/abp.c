@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "abp.h"
 
+//insere nodo/valor na árvore ABP
 pNodoA* InsereArvore(pNodoA *a, int ch, int * cont){
     (*cont) ++;
     if (a == NULL){
@@ -26,7 +27,7 @@ pNodoA* InsereArvore(pNodoA *a, int ch, int * cont){
     }
 }
 
-
+//consulta valor na ABP
 pNodoA* consultaABP(pNodoA *a, int chave, int * cont) {
 
     while (a!=NULL){
