@@ -20,8 +20,7 @@ ptLDEC * getLista(ptLDEC * lista, int posicao);
 
 ptLDEC * insereLista(ptLDEC * lista, int item);
 
-ptLDEC * destroiLista(ptLDEC * lista);
 
-#endif /* LSE_H */
+#endif /* LDEC_H */
 
 

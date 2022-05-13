@@ -20,65 +20,7 @@ pNodoA* InsereArvore(pNodoA *a, tipoinfo ch)
      return a;
 }
 
-void preFixadoE(pNodoA *a)
-{
-     if (a!= NULL)
-     {
-          printf("%d - ",a->info);
-          preFixadoE(a->esq);
-          preFixadoE(a->dir);
-      }
-}
 
-void preFixadoD(pNodoA *a)
-{
-     if (a!= NULL)
-     {
-          printf("%d - ",a->info);
-          preFixadoD(a->dir);
-          preFixadoD(a->esq);
-      }
-}
-
-void posFixadoE(pNodoA *a)
-{
-     if (a!= NULL)
-     {
-          posFixadoE(a->esq);
-          posFixadoE(a->dir);
-          printf("%d - ",a->info);
-      }
-}
-
-void posFixadoD(pNodoA *a)
-{
-     if (a!= NULL)
-     {
-          posFixadoD(a->dir);
-          posFixadoD(a->esq);
-          printf("%d - ",a->info);
-      }
-}
-
-void CentralE(pNodoA *a)
-{
-     if (a!= NULL)
-     {
-          CentralE(a->esq);
-          printf("%d - ",a->info);
-          CentralE(a->dir);
-      }
-}
-
-void CentralD(pNodoA *a)
-{
-     if (a!= NULL)
-     {
-          CentralD(a->dir);
-          printf("%d - ",a->info);
-          CentralD(a->esq);
-      }
-}
 
 
 pNodoA* consultaABP(pNodoA *a, tipoinfo chave) {

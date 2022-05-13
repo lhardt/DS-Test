@@ -1,12 +1,12 @@
 #include "util.h"
 
 
-// Creates a random list of the numbers from 1 to n, inclusive
+// Creates a (random) list of the numbers from 1 to n, inclusive
 int * generate_number_list(int n, int random){
 	if(n == 0) return NULL;
 
 	int * list = calloc(n, sizeof(int));
-	srand(time(NULL));
+	
 
 	for(int i_gen = 0; i_gen < n; ++i_gen){
 		list[i_gen] = i_gen + 1; // list 1,2,3,4...

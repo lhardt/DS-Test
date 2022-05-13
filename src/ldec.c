@@ -51,9 +51,9 @@ void consultaLDEC(ptLDEC * lista, int num){
             }
         }
     }
-    //if (enc==NULL){
-    //    printf ("Numero nao encontrado!\n");
-    //}
+    if (enc==NULL){
+        printf ("Numero nao encontrado!\n");
+    }
 
 
 }
@@ -88,24 +88,5 @@ ptLDEC * insereLista(ptLDEC * lista, int item){
 	return lista;
 }
 
-/*ptLDEC * destroiLista(ptLDEC * lista){
-	if(lista == NULL) {
-		return NULL;
-	}//mudei aqui, mas tem algo errado
-
-    ptLDEC * iterador = lista;
-    ptLDEC * ultimo = lista->ant;
-
-    while(iterador != NULL && iterador != ultimo) {
-        ptLDEC * proximo = iterador->prox;
-        free(iterador);
-        iterador = proximo; // avan�a
-    }
-
-    if(iterador != NULL){
-        // Ent�o � o 'ultimo', por ter sa�do do loop
-        free(iterador);
-    }
-}*/
 
 
