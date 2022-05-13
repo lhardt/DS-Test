@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "abp.h"
 
-pNodoA* InsereArvore(pNodoA *a, tipoinfo ch, int * cont){
+pNodoA* InsereArvore(pNodoA *a, int ch, int * cont){
     (*cont) ++;
     if (a == NULL){
         
@@ -27,7 +27,7 @@ pNodoA* InsereArvore(pNodoA *a, tipoinfo ch, int * cont){
 }
 
 
-pNodoA* consultaABP(pNodoA *a, tipoinfo chave, int * cont) {
+pNodoA* consultaABP(pNodoA *a, int chave, int * cont) {
 
     while (a!=NULL){
         (*cont) ++;
@@ -46,17 +46,3 @@ pNodoA* consultaABP(pNodoA *a, tipoinfo chave, int * cont) {
     return NULL; //se nao achou
 }
 
-pNodoA* consultaABP2(pNodoA *a, tipoinfo chave) {
-    if (a!=NULL) {
-       if (a->info == chave)
-         return a;
-       else
-           if (a->info > chave)
-                return consultaABP2(a->esq,chave);
-            if (a->info < chave)
-                return consultaABP2(a->dir,chave);
-
-            else return a;
-       }
-       else return NULL;
-}
