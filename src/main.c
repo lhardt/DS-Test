@@ -130,11 +130,12 @@ void randomTest(int n_itens){
 	int * searchList = getInicioMeioFim(list, n_itens);
 	//print_int_list(3, searchList);
 
-	//busca incio, meio e fim lista
-	test_search_linked_list(3, searchList, ldec);	
-
 	//busca inicio, meio e fim abp
 	test_search_abp(3, searchList , abp);
+
+	//busca incio, meio e fim lista
+	test_search_linked_list(3, searchList, ldec);
+	
 
 	//////////////////////////////////////////////////////////////////
 
@@ -158,6 +159,15 @@ void randomTest(int n_itens){
 	//busca 100 aleatorios lista		
 	test_search_linked_list(100,searchList , ldec);
 
+	searchList = generate_number_list(1000, 1);
+	//print_int_list(1000, searchList);
+
+	//busca 1000 aleatorios abp
+	test_search_abp(1000, searchList , abp);
+
+	//busca 1000 aleatorios lista		
+	test_search_linked_list(1000,searchList , ldec);
+
 }
 
 void orderedTest(int n_itens){
@@ -176,11 +186,12 @@ void orderedTest(int n_itens){
 	int * searchList = getInicioMeioFim(list, n_itens);
 	//print_int_list(3, searchList);
 
-	//busca incio, meio e fim lista
-	test_search_linked_list(3, searchList, ldec);	
-
 	//busca inicio, meio e fim abp
 	test_search_abp(3, searchList , abp);
+
+	//busca incio, meio e fim lista
+	test_search_linked_list(3, searchList, ldec);	
+	
 
 	//////////////////////////////////////////////////////////////////
 
@@ -202,6 +213,16 @@ void orderedTest(int n_itens){
 	//busca 100 aleatorios lista		
 	test_search_linked_list(100,searchList , ldec);
 
+	//////////////////////////////////////////////////////////////////
+
+	searchList = generate_number_list(1000, 1);
+
+	//busca 1000 aleatorios abp
+	test_search_abp(1000, searchList , abp);
+
+	//busca 1000 aleatorios lista		
+	test_search_linked_list(1000,searchList , ldec);
+
 }
 
 int main(){
@@ -213,8 +234,9 @@ int main(){
 	scanf("%d", &n_itens);
 
 	///////////////////////////////////////////////////////////////
+	orderedTest(n_itens);
 	randomTest(n_itens);
-	orderedTest(n_itens);	
+		
 
 	
 
