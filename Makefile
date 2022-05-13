@@ -23,7 +23,7 @@ MAIN 	:= $(SRCDIR)/main.c
 MAINO 	:= $(OBJDIR)/main.o
 TARGET 	:= $(BINDIR)/main
 # -lXXX vai procurar um arquivo com nome libXXX.a
-LIB		:= $(wildcard $(LIBDIR)/*.o) $(wildcard $(LIBDIR)/*.a) -lopengl32 -lgdi32 -lwinmm
+LIB		:= $(wildcard $(LIBDIR)/*.o) $(wildcard $(LIBDIR)/*.a) 
 OBJ 	:= $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 # --------------------
 # Flags para o compilador

@@ -1,7 +1,7 @@
 #ifndef LDEC_H
 #define LDEC_H
 
-// LDEC é uma lista duplamente encadeada circular.
+// LDEC ï¿½ uma lista duplamente encadeada circular.
 typedef struct tipoNo ptLDEC;
 
 struct tipoNo {
@@ -10,11 +10,12 @@ struct tipoNo {
 	ptLDEC * prox;
 };
 
+void consultaValor(ptLDEC * lista, int num);
 
 
 ptLDEC * inicializa();
 
-// Posição -1 significando o último
+// Posiï¿½ï¿½o -1 significando o ï¿½ltimo
 ptLDEC * getLista(ptLDEC * lista, int posicao);
 
 ptLDEC * insereLista(ptLDEC * lista, int item);

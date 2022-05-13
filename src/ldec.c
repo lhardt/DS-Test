@@ -5,30 +5,12 @@
 
 
 
-void descrever(ptLDEC * lista){
-	ptLDEC * aux = lista;
-
-	if(lista != NULL){
-		printf("\n[%d", aux->num);
-		aux = aux->prox;
-
-		while(aux != lista ){
-			printf(", %d", aux->num);
-			aux = aux->prox;
-		}
-		printf("]\n");
-	} else {
-		printf("[ ]");
-	}
-
-}
-
 
 ptLDEC * inicializa(){
 	return NULL;
 }
 
-// Posição -1 significando o último
+// Posiï¿½ï¿½o -1 significando o ï¿½ltimo
 ptLDEC * getLista(ptLDEC * lista, int posicao){
 	ptLDEC * aux = lista;
 	int ctr = 0;
@@ -52,29 +34,68 @@ ptLDEC * getLista(ptLDEC * lista, int posicao){
 	return NULL;
 }
 
-ptLDEC * insereLista(ptLDEC * lista, int item){
-	int tamanho = conta_elementos(lista);
-	ptLDEC * novo = calloc(1, sizeof(ptLDEC));
+void consultaValor(ptLDEC * lista, int num){
+    ptLDEC * enc = NULL;
+    ptLDEC * aux = lista;
 
-	printf("Inserindo o valor %d\n", item);
+    if (lista !=NULL){
+        if (lista->num == num){
+            enc = lista;
+        }else{
+            aux = lista->prox;
+            while(aux != lista && enc == NULL){
+                if (aux->num == num){
+                    enc = aux;
+                }
+            aux = aux->prox;
+            }
+        }
+    }
+    if (enc!=NULL){
+        printf ("\nSua lista:\n->");
+        //imprime(enc);
+    }
+    else{
+        printf ("Numero nao encontrado!\n");
+    }
+
+
+}
+
+ptLDEC * insereLista(ptLDEC * lista, int item){
+	
+	ptLDEC * novo = calloc(1, sizeof(ptLDEC));
 
 	novo->num = item;
 
-	if(item == 0){
-		printf("Inserção inválida.\n");
-		return lista;
+	if (lista == NULL){
+        novo->prox = novo;
+		novo->ant = novo;
+        lista = novo;
+    }else{
+		novo->prox = lista;
+    	novo->ant = lista->ant;
+    	lista = novo;
 	}
     // inserir no inicio da lista.
-    novo->prox = novo;
-    novo->ant = novo;
-    lista = novo;
+    
+
+	//inserir no fim da lista
+	/*ptLDEC * ultimo = getLista(lista, -1);
+
+	ultimo->prox = novo;
+	novo->ant = ultimo;
+	novo->prox = lista;
+	lista->ant = novo;*/
 
 
 	return lista;
 }
 
-ptLDEC * destroiLista(ptLDEC * lista){
-	if(lista == NULL) return;
+/*ptLDEC * destroiLista(ptLDEC * lista){
+	if(lista == NULL) {
+		return NULL;
+	}//mudei aqui, mas tem algo errado
 
     ptLDEC * iterador = lista;
     ptLDEC * ultimo = lista->ant;
@@ -82,13 +103,13 @@ ptLDEC * destroiLista(ptLDEC * lista){
     while(iterador != NULL && iterador != ultimo) {
         ptLDEC * proximo = iterador->prox;
         free(iterador);
-        iterador = proximo; // avança
+        iterador = proximo; // avanï¿½a
     }
 
     if(iterador != NULL){
-        // Então é o 'ultimo', por ter saído do loop
+        // Entï¿½o ï¿½ o 'ultimo', por ter saï¿½do do loop
         free(iterador);
     }
-}
+}*/
 
 
