@@ -10,7 +10,7 @@ struct tipoNo {
 	ptLDEC * prox;
 };
 
-void consultaValor(ptLDEC * lista, int num);
+void consultaLDEC(ptLDEC * lista, int num);
 
 
 ptLDEC * inicializa();

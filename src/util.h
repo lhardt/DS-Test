@@ -12,8 +12,12 @@
 #include <stdbool.h>
 
 // Creates a random list of the numbers from 1 to n, inclusive
-int * generate_number_list(int n);
+int * generate_number_list(int n, int random);
 
 void print_int_list(int n_numb, int * list);
+
+int getNumberPos (int *list, int pos, int tam);
+
+int * getInicioMeioFim(int *list, int tam);
 
 #endif

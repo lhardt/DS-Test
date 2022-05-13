@@ -30,7 +30,7 @@ void test_insert_abp(int n_numeros, int *numeros){
 	printf("\n---------------------------------\n");
 }
 
-void test_insert_linked_list(int n_numeros, int * numeros){
+ptLDEC * test_insert_linked_list(int n_numeros, int * numeros){
 	printf("\n---------------------------------\n");
 	printf("STARTING INSERT LIST TEST WITH %d NUMBERS.\n", n_numeros);
 
@@ -39,31 +39,42 @@ void test_insert_linked_list(int n_numeros, int * numeros){
 	ptLDEC * ldec = NULL;
 
     	for(int i = 0; i < n_numeros; ++i){
-		ldec = insereLista(ldec, numeros[i]);
-	}
+			ldec = insereLista(ldec, numeros[i]);
+		}
 
 	clock_t end = clock();
 
 
 	printf("TOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
-	printf ("\n %d %d %d %d %d %d", ldec->num, ldec->prox->num, ldec->prox->prox->num,
-	ldec->prox->prox->prox->num, ldec->prox->prox->prox->prox->num,
-	 ldec->prox->prox->prox->prox->prox->num);
+	//printf ("\n %d %d %d %d %d %d", ldec->num, ldec->prox->num, ldec->prox->prox->num,
+	//ldec->prox->prox->prox->num, ldec->prox->prox->prox->prox->num,
+	// ldec->prox->prox->prox->prox->prox->num);
 	
 	printf("\n---------------------------------\n");
+	return ldec;
 }
 
-void test_search_linked_list(int n_numeros, int * numeros){
+void test_search_linked_list(int n_numeros, int * numeros, ptLDEC * ldec){
 	printf("\n---------------------------------\n");
 	printf("STARTING SEARCH LIST TEST WITH %d NUMBERS.\n", n_numeros);
 
 	clock_t start = clock();
 
-	ptLDEC * ldec = NULL;
 
-    	for(int i = 0; i < n_numeros; ++i){
-		ldec = insereLista(ldec, numeros[i]);
+	if (n_numeros==3){
+		printf ("\numeros [0] %d", numeros[0]);
+		consultaLDEC(ldec, numeros[0]);
+		printf ("\nbuscou o primeiro");
+
+		printf ("\numeros [1] %d", numeros[1]);
+		consultaLDEC(ldec, numeros[1]);
+		printf ("\nbuscou o segundo ");
+
+		printf ("\numeros [2] %d", numeros[2]);
+		consultaLDEC(ldec, numeros[2]);
+		printf ("\nbuscou o terceiro");
 	}
+    	
 
 	clock_t end = clock();
 
@@ -80,10 +91,23 @@ int main(){
 	printf("Digite o numero de itens:\n>>>\t");
 	scanf("%d", &n_itens);
 
-	int* list = generate_number_list(n_itens);
+	printf("Teste itens aleatorios:\n>>>\t");
+	int* list = generate_number_list(n_itens, 1);//generate random
 	 print_int_list(n_itens, list);
 
 	test_insert_abp(n_itens, list);
-	test_insert_linked_list(n_itens, list);
+	ptLDEC * ldec = NULL;
+	ldec = test_insert_linked_list(n_itens, list);
+
+	//busca incio, meio e fim lista
+	test_search_linked_list(3, getInicioMeioFim(list, n_itens), ldec);
+	//busca aleatorios lista
+
+	//busca incio, meio e fim abp
+
+	//busca aleatorios abp
+
+	//TEMOS QUE ANALISAR NUMERO DE COMPARAÇÕES TAMBÉM
+
 	return 0;
 }

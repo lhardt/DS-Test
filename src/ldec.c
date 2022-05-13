@@ -34,7 +34,7 @@ ptLDEC * getLista(ptLDEC * lista, int posicao){
 	return NULL;
 }
 
-void consultaValor(ptLDEC * lista, int num){
+void consultaLDEC(ptLDEC * lista, int num){
     ptLDEC * enc = NULL;
     ptLDEC * aux = lista;
 
@@ -51,13 +51,9 @@ void consultaValor(ptLDEC * lista, int num){
             }
         }
     }
-    if (enc!=NULL){
-        printf ("\nSua lista:\n->");
-        //imprime(enc);
-    }
-    else{
-        printf ("Numero nao encontrado!\n");
-    }
+    //if (enc==NULL){
+    //    printf ("Numero nao encontrado!\n");
+    //}
 
 
 }
