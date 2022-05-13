@@ -19,14 +19,16 @@ pNodoA * test_insert_abp(int n_numeros, int *numeros){
 	pNodoA * abp = NULL;
 	clock_t start = clock();
 
+	int cont = 0;
 
 	for(int i = 0; i < n_numeros; ++i){
-		abp = InsereArvore(abp, numeros[i]);
+		abp = InsereArvore(abp, numeros[i], &cont);
 	}
 
 	clock_t end = clock();
 
 	printf("TOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
+	printf("\n%d COMPARISONS DONE", cont);
 	printf("\n---------------------------------\n");
 	return abp;
 }
@@ -37,16 +39,19 @@ ptLDEC * test_insert_linked_list(int n_numeros, int * numeros){
 
 	clock_t start = clock();
 
+	int cont = 0;
+
 	ptLDEC * ldec = NULL;
 
     	for(int i = 0; i < n_numeros; ++i){
-			ldec = insereLista(ldec, numeros[i]);
+			ldec = insereLista(ldec, numeros[i], &cont);
 		}
 
 	clock_t end = clock();
 
 
 	printf("TOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
+	printf("\n%d COMPARISONS DONE", cont);
 	//printf ("\n %d %d %d %d %d %d", ldec->num, ldec->prox->num, ldec->prox->prox->num,
 	//ldec->prox->prox->prox->num, ldec->prox->prox->prox->prox->num,
 	// ldec->prox->prox->prox->prox->prox->num);
@@ -61,23 +66,24 @@ void test_search_linked_list(int n_numeros, int * numeros, ptLDEC * ldec){
 
 	clock_t start = clock();
 	clock_t end;
+	int cont = 0;
 
 	if (n_numeros==3){
-		consultaLDEC(ldec, numeros[0]);
-		consultaLDEC(ldec, numeros[1]);
-		consultaLDEC(ldec, numeros[2]);
+		consultaLDEC(ldec, numeros[0], &cont);
+		consultaLDEC(ldec, numeros[1], &cont);
+		consultaLDEC(ldec, numeros[2], &cont);
 		end = clock();
 	}
 	else if (n_numeros >3){
 		for (int x=0; x<n_numeros; x++){
-			consultaLDEC(ldec, numeros[x]);
+			consultaLDEC(ldec, numeros[x], &cont);
 		}
 		end = clock();
-		printf("AVERAGE ELAPSED TIME: %.4fs\n", ((end - start + 0.0)/CLOCKS_PER_SEC)/n_numeros);
+		printf("\nAVERAGE ELAPSED TIME: %.4fs\n", ((end - start + 0.0)/CLOCKS_PER_SEC)/n_numeros);
 	}
     	
-	
-	printf("TOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
+	printf("%d COMPARISONS DONE", cont);
+	printf("\nTOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
 	printf("\n---------------------------------\n");
 }
 
@@ -87,23 +93,24 @@ void test_search_abp(int n_numeros, int * numeros, pNodoA * abp){
 
 	clock_t start = clock();
 	clock_t end;
+	int cont = 0;
 
 	if (n_numeros==3){
-		consultaABP(abp, numeros[0]);
-		consultaABP(abp, numeros[1]);
-		consultaABP(abp, numeros[2]);
+		consultaABP(abp, numeros[0], &cont);
+		consultaABP(abp, numeros[1], &cont);
+		consultaABP(abp, numeros[2], &cont);
 		end = clock();
 	}
 	else if (n_numeros>3){
 		for (int x=0; x<n_numeros; x++){
-			consultaABP(abp, numeros[x]);
+			consultaABP(abp, numeros[x], &cont);
 		}
 		end = clock();
-		printf("AVERAGE ELAPSED TIME: %.4fs\n", ((end - start + 0.0)/CLOCKS_PER_SEC)/n_numeros);
+		printf("\nAVERAGE ELAPSED TIME: %.4fs", ((end - start + 0.0)/CLOCKS_PER_SEC)/n_numeros);
 	}
     	
-
-	printf("TOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
+	printf("\n%d COMPARISONS DONE", cont);
+	printf("\nTOTAL ELAPSED TIME: %.4fs", (end - start + 0.0)/CLOCKS_PER_SEC);
 	printf("\n---------------------------------\n");
 }
 
@@ -143,12 +150,12 @@ void randomTest(int n_itens){
 	//////////////////////////////////////////////////////////////////
 
 	searchList = generate_number_list(100, 1);
-	//print_int_list(10, searchList);
+	//print_int_list(100, searchList);
 
-	//busca 10 aleatorios abp
+	//busca 100 aleatorios abp
 	test_search_abp(100, searchList , abp);
 
-	//busca 10 aleatorios lista		
+	//busca 100 aleatorios lista		
 	test_search_linked_list(100,searchList , ldec);
 
 }
@@ -192,7 +199,7 @@ void orderedTest(int n_itens){
 	//busca 100 aleatorios abp
 	test_search_abp(100, searchList , abp);
 
-	//busca 10 aleatorios lista		
+	//busca 100 aleatorios lista		
 	test_search_linked_list(100,searchList , ldec);
 
 }

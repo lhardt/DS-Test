@@ -10,15 +10,12 @@ struct tipoNo {
 	ptLDEC * prox;
 };
 
-void consultaLDEC(ptLDEC * lista, int num);
+void consultaLDEC(ptLDEC * lista, int num, int * cont);
 
 
 ptLDEC * inicializa();
 
-// Posi��o -1 significando o �ltimo
-ptLDEC * getLista(ptLDEC * lista, int posicao);
-
-ptLDEC * insereLista(ptLDEC * lista, int item);
+ptLDEC * insereLista(ptLDEC * lista, int item, int * cont);
 
 
 #endif /* LDEC_H */

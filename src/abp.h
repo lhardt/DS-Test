@@ -8,13 +8,13 @@ struct TNodoA{
 
 typedef struct TNodoA pNodoA;
 
-pNodoA* InsereArvore(pNodoA *a, tipoinfo ch);
+pNodoA* InsereArvore(pNodoA *a, tipoinfo ch, int * cont);
 void preFixadoE(pNodoA *a);
 void preFixadoD(pNodoA *a);
 void posFixadoE(pNodoA *a);
 void posFixadoD(pNodoA *a);
 void CentralE(pNodoA *a);
 void CentralD(pNodoA *a);
-pNodoA* consultaABP(pNodoA *a, tipoinfo chave);
+pNodoA* consultaABP(pNodoA *a, tipoinfo chave, int * cont);
 pNodoA* consultaABP2(pNodoA *a, tipoinfo chave);
 
